@@ -1,14 +1,14 @@
 ---
 layout: page
 title: Learning programming
-tagline: Learning programming (with Go)
+tagline: with Go and other things
 ---
 {% include JB/setup %}
 
 Complete usage and documentation available at: [Jekyll Bootstrap](http://jekyllbootstrap.com)
 
 <ul class="posts">
-  {% for post in site.posts %}
+  {% for post in site.posts reversed %}
     <li><span>{{ post.date | date_to_string }}</span> &raquo; <a href="{{ BASE_PATH }}{{ post.url }}">{{ post.title }}</a></li>
   {% endfor %}
 </ul>
