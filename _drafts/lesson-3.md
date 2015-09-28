@@ -136,5 +136,30 @@ This is what you see in the upper left section of the simulator:
 ![Eightyish memory]({{site.url}}/assets/pictures/eightyish_assembler.png)
 
 No the right side of the assembler you see the program from the processor's view (i.e. the
-    bytes in the main memory), to the left is a more human-friendly version. Not suprisingly
-both are rather empty right now: There is just the single byte __HALT__ instruction.
+    bytes in the main memory), to the left is a more human-friendly version. Not surprisingly
+both are rather empty right now: There is just the single byte __HALT__ instruction. In the menu
+bar you will also find a link to the full "Instruction set" of the simulator as reference, though
+we will discuss each instruction in more detail in the upcoming lessons.
+
+Before we continue, a short side note: You may wonder now, if __HALT__ is really an instruction
+you would like to have inside a processor. "Stop processing" sounds like a computer freeze, and
+we (usually) do not want to have that. Indeed, used wrongly, the __HALT__ instruction may indeed
+lead to a computer freeze, but used correctly it is extremely helpful to reduce power consumption.
+Modern processor are so fast that (in normal operation) they do not have to do anything most of
+the time, so the operating system usually issues a __HALT__ instruction to stop the processor
+until an I/O operation (user-input, timeout etc.) wakes it up again.
+
+# Our second program
+
+Since we already discussed our very first program (just __HALT__), we would now like to something
+more useful. To start slowly we just want the simulator to add the numbers _3_ and _5_. This
+sounds quite simple, though it might be quite hard to find the right instructions at first.
+
+The main problem is that the problem "Add _3_ and _5_" is stated in a rather imprecise manner. Of
+course any human (with basic mathematical education) knows what to do or just knows the result. A
+processor though is extremely stupid, it needs to be told what to do step-by-step without any room
+for ambiguousness. The little statement does not specify where the number come from, which
+registers should be used for the calculation or where the result should be stored. So for a
+processor to understand, I have to reformulate the task like this:
+
+1. Load the value _3_ to register __A__
